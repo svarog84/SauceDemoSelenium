@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -20,7 +21,7 @@ public class SauceDemoLoginTest extends BaseTest {
     public void pageSetUp() throws IOException {
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
-        driver.get("/https://www.saucedemo.com");
+        driver.get("https://www.saucedemo.com/");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         homePage = new HomePage();
@@ -46,5 +47,10 @@ public class SauceDemoLoginTest extends BaseTest {
 
         Assert.assertTrue(homePage.isErrorMessageDisplayed());
         Assert.assertTrue(homePage.isLoginButtonDisplayed());
+    }
+
+    @AfterMethod
+    public void closeDriver(){
+        driver.quit();
     }
 }

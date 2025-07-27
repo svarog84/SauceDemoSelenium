@@ -18,7 +18,7 @@ public class HomePage extends BaseTest {
     WebElement passwordField;
     @FindBy(id = "login-button")
     WebElement loginButton;
-    @FindBy(xpath = "/html/body/div/div/div[2]/div[1]/div/div/form/div[3]/h3/button")
+    @FindBy(className = "error-button")
     WebElement errorMessage;
 
     public void inputUsername(String username) {
@@ -41,9 +41,8 @@ public class HomePage extends BaseTest {
         return loginButton.isDisplayed();
     }
 
-
-
-
-
+    public boolean isUserNameFieldDisplayed() {
+        return usernameField.isDisplayed();
+    }
 
 }

@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -36,8 +37,14 @@ public class AddAllItemsToCartTest extends BaseTest {
     @Test
     public void addAllItemsToCartTest() throws InterruptedException {
         productPage.clickAllAddToCartButtons();
-        //dodaje samo 3 itema u cart, pronaci zasto ostala 3 ne dodaje
-        //Assert.assertEquals(productPage.shoppingCartIconNumber(), 6);
+        productPage.clickAllAddToCartButtons();
+        productPage.clickAllAddToCartButtons();
+        Assert.assertEquals(productPage.shoppingCartIconNumber(), "6");
+        System.out.println("Broj predmeta u korpi je: " + productPage.shoppingCartIconNumber());
     }
 
+    @AfterMethod
+    public void closeDriver(){
+        driver.quit();
+    }
 }

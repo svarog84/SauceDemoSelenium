@@ -36,4 +36,10 @@ public class CartPage extends BaseTest {
     public void clickOnContinueShoppingButton() {
         continueShoppingButton.click();
     }
+
+    public void clickCheckoutButton() {
+        checkoutButton.click();
+    }
+
+
 }

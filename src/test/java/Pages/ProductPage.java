@@ -25,6 +25,12 @@ public class ProductPage extends BaseTest {
     @FindBy(css = ".btn.btn_primary.btn_small.btn_inventory ")
     List <WebElement> addToCartButtons;
 
+    @FindBy(id = "react-burger-menu-btn")
+    WebElement hamburgerMenu;
+
+    @FindBy(id = "logout_sidebar_link")
+    WebElement sidebarLogoutButton;
+
 
     public void addBackpackToCart() {
         addBackpackToCartButton.click();
@@ -48,10 +54,16 @@ public class ProductPage extends BaseTest {
     }
 
     public void clickAllAddToCartButtons() throws InterruptedException {
-        for (int i = 0; i < addToCartButtons.size(); i++) {
-            Thread.sleep((1000));
-            addToCartButtons.get(i).click();
-
+        for (WebElement addToCartButton : addToCartButtons) {
+            addToCartButton.click();
         }
+    }
+
+    public void clickHamburgerMenu() {
+        hamburgerMenu.click();
+    }
+
+    public void clickSidebarLogoutButton() {
+        sidebarLogoutButton.click();
     }
 }

@@ -26,9 +26,11 @@ SauceDemoSelenium/ ├── src/ │   ├── main/ │   │   └── ja
    git clone https://github.com/svarog84/SauceDemoSelenium.git
 
 2. Install Dependencies
+   
 mvn clean install
 
-3. Run Test Suite
+4. Run Test Suite
+
 mvn test
 
 🧪 Key Test Scenarios- Valid and invalid login attempts
